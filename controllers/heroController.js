@@ -4,7 +4,6 @@ exports.index = (_req, res) => {
   knex("hero")
     .then((data) => {
       res.status(200).json(data);
-      console.log(data);
     })
     .catch((error) =>
       res.status(400).send(`Error retrieving heroes: ${error}`)

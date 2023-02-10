@@ -10,6 +10,6 @@ router
 
 router
 .route('/:id')
-.get(heroesController.singleItem)
+.get(itemController.singleItem)
 
 module.exports = router
