@@ -11,7 +11,7 @@ const signup = require('./routes/signup')
 const profile = require('./routes/profile')
 const hero = require('./routes/hero')
 const item = require('./routes/item')
-// const spell = require('./routes/spell')
+const spell = require('./routes/spell')
 
 app.use(cors());
 app.use(express.json());
@@ -21,7 +21,7 @@ app.use('/signup', signup)
 app.use('/profile', profile)
 app.use('/hero', hero)
 app.use('/item', item)
-// app.use('/spell', spell)
+app.use('/spell', spell)
 
 
 app.listen(port, () => {

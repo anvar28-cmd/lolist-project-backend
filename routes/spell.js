@@ -1,6 +1,13 @@
-// const express = require('express');
-// const router = express.Router();
-// const fs = require("fs");
+const express = require("express");
+const router = express.Router();
+const fs = require("fs");
 
+const spellController = require('../controllers/spellController')
 
-// module.exports = router
+router.route("/").get(spellController.index);
+
+router
+  .route("/:id")
+  .get(spellController.singleHero)
+
+module.exports = router;
