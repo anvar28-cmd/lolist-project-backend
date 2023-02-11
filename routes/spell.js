@@ -8,6 +8,6 @@ router.route("/").get(spellController.index);
 
 router
   .route("/:id")
-  .get(spellController.singleHero)
+  .get(spellController.singleSpell)
 
 module.exports = router;

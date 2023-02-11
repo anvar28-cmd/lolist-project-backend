@@ -10,7 +10,7 @@ exports.index = (_req, res) => {
     );
 };
 
-exports.singleHero = (req, res) => {
+exports.singleSpell = (req, res) => {
   knex("spell")
     .where({ id: req.params.id })
     .then((data) => {
