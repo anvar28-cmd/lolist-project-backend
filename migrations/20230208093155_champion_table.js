@@ -1,12 +1,15 @@
 exports.up = function (knex) {
     return knex.schema.createTable("champion", (table) => {
-      table.uuid("id").primary();
+      table.string("id").primary();
       table
-        .uuid("users_id")
-        .references("users.id")
+        .integer("users_id")
+        .unsigned()
+        .notNullable()
+        .references('id')
+        .inTable('users')
         .onUpdate("CASCADE")
         .onDelete("CASCADE");
-      table.string("hero_name").notNullable();
+      table.string("champion_name").notNullable();
     });
   };
   

@@ -4,8 +4,26 @@ exports.seed = async function(knex) {
     {
       id: '1',
       username: "shimazu28",
-      password: "gm123456",
+      password: "alchem",
       name: "Anvar Gulomov"
+    },
+    {
+      id: '2',
+      username: "alchemist7797",
+      password: "naruto",
+      name: "Daler Yusupov"
+    },
+    {
+      id: '3',
+      username: "obiwan",
+      password: "sher",
+      name: "Shepard Sharipov"
+    },
+    {
+      id: '4',
+      username: "x-ray",
+      password: "kotoklism",
+      name: "Oleg Ilyasov"
     }
   ]);
 };

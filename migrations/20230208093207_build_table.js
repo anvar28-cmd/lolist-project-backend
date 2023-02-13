@@ -1,19 +1,28 @@
 exports.up = function (knex) {
     return knex.schema.createTable("build", (table) => {
-      table.uuid("id").primary();
+      table.increments("id").primary();
       table
-        .uuid("champion_id")
+        .string("champion_id")
         .references("champion.id")
         .onUpdate("CASCADE")
         .onDelete("CASCADE");
+      table.string("description", 256);
       table.string("item1").notNullable();
-      table.string("item2").notNullable();
-      table.string("item3").notNullable();
-      table.string("item4").notNullable();
-      table.string("item5").notNullable();
-      table.string("item6").notNullable();
-      table.string("spell1").notNullable();
-      table.string("spell2").notNullable();
+      table.string("img1").notNullable();
+      table.string("item2");
+      table.string("img2");
+      table.string("item3");
+      table.string("img3");
+      table.string("item4");
+      table.string("img4");
+      table.string("item5");
+      table.string("img5");
+      table.string("item6");
+      table.string("img6");
+      table.string("spell1");
+      table.string("img7");
+      table.string("spell2");
+      table.string("img8");
     });
   };
   

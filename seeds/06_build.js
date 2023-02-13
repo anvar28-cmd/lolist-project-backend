@@ -2,16 +2,25 @@ exports.seed = async function(knex) {
   await knex('build').del()
   await knex('build').insert([
     {
-      id: '83433026-ca32-4c6d-bd86-a39ee8b7303e',
-      champion_id: '9b4f79ea-0e6c-4e59-8e05-afd933d0b3d3',
+      id: "1",
+      champion_id: "Yorick",
+      description: "Warrior's build",
       item1: "Divine Sunderer",
-      item2: "Duskblade of Draktharr",
-      item3: "Iceborn Gauntlet",
-      item4: "Imperial Mandate",
-      item5: "Prowler's Claw",
-      item6: "Sorcerer's Shoes",
+      img1: "6632.png",
+      item2: "Death's Dance",
+      img2: "6333.png",
+      item3: "Spirit Visage",
+      img3: "3065.png",
+      item4: "Hullbreaker",
+      img4: "3181.png",
+      item5: "Mercury's Treads",
+      img5: "3111.png",
+      item6: "Sterak's Gage",
+      img6: "3053.png",
       spell1: "Flash",
-      spell2: "ignite",
+      img7: "SummonerFlash.png",
+      spell2: "Ignite",
+      img8: "SummonerDot.png",
     }
   ]);
 };
