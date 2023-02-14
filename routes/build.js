@@ -14,6 +14,8 @@ router
 .delete(buildController.deleteBuild)
 // .get(buildController.singleBuild)
 
+router.route('/:heroID')
+.get(buildController.getHeroes)
 
 
 module.exports = router;

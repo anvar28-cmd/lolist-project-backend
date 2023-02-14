@@ -6,6 +6,6 @@ const profileController = require('../controllers/profileController');
 
 router
 .route('/')
-.get(...profileController.index);
+.get(profileController.index);
 
 module.exports = router;

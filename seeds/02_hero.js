@@ -2,7 +2,7 @@ const { data } = require("../seed_data/hero.json");
 const heros = Object.values(data);
 const heroInput = heros.map((hero) => {
   return {
-    id: hero.id,
+    id: hero.id, 
     name: hero.name,
     title: hero.title,
     blurb: hero.blurb,

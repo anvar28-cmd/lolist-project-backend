@@ -21,7 +21,7 @@ exports.loginUser = async (req, res) => {
 
   console.log(user)
   if (user?.password === password) {
-    const token = jwt.sign({ username }, secret);
+    const token = jwt.sign({ username, id: user.id }, secret);
     res.json({ token });
   } else {
     res.status(401).json({

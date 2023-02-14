@@ -1,13 +1,11 @@
 const knex = require("knex")(require("../knexfile"));
-const jwt = require("jsonwebtoken");
-const secret = process.env.SECRET_KEY ?? "secret123";
 
-exports.index = [checkJwt, async (req, res) => {
+exports.index =  async (req, res) => {
   console.log(req.payload)
-    const {username} = req.payload;
+    const {username } = req.payload;
 
   //get the prfile data from the database using the username (primary key)
-  const profileData = await knex.select('users.username as username',' users.name as u_name', 'champion.champion_name as champion',
+  const profileData = await knex.select('users.username as username',' users.name as u_name', 'hero.name as hero',
   'build.description as b_desc', 
   'build.id as b_id',
   'i1.name as i1_name', 'i1.image as i1_image',
@@ -19,15 +17,15 @@ exports.index = [checkJwt, async (req, res) => {
   's1.name as s1_name', 's1.image as s1_image',
   's2.name as s2_name', 's2.image as s2_image',
   ).from("users")
-  .innerJoin('champion', 'champion.users_id', '=', 'users.id' )
-  .innerJoin('build', 'build.champion_id', '=', 'champion.id' )
+  .innerJoin('build', 'build.users_id', '=', 'users.id' )
+  .innerJoin('hero', 'build.hero_id', '=', 'hero.id')
   .innerJoin('item as i1', 'build.item1_id', '=', 'i1.id')
   .innerJoin('item as i2', 'build.item2_id', "=", 'i2.id')
   .leftOuterJoin('item as i3', 'build.item3_id', '=', 'i3.id')
   .leftOuterJoin('item as i4', 'build.item4_id', "=", 'i4.id')
   .leftOuterJoin('item as i5', 'build.item5_id', '=', 'i5.id')
   .leftOuterJoin('item as i6', 'build.item6_id', "=", 'i6.id')
-  .leftOuterJoin('spell as s1', 'build.spell1_id', '=', 's1.id')
+  .innerJoin('spell as s1', 'build.spell1_id', '=', 's1.id')
   .leftOuterJoin('spell as s2', 'build.spell2_id', "=", 's2.id')
   .where({ username }).first();
 
@@ -36,22 +34,7 @@ exports.index = [checkJwt, async (req, res) => {
 
   //sent the profile data back to the frontend
   res.json(profileData);
-}];
+};
 
 
 
-function checkJwt(req, res, next) {
-    const { authorization } = req.headers;
-    const token = authorization.split(" ")[1];
-  
-    jwt.verify(token, secret, (err, decoded) => {
-      if (err) {
-        res.status(403).send("token not valid");
-      } else {
-        console.log(token)
-        req.payload = decoded;
-      }
-    });
-  
-    next();
-  }
