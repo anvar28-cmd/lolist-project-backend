@@ -13,67 +13,27 @@ exports.index = (_req, res) => {
 exports.addBuild = (req, res) => {
     // Validate the request body for required data
     if (
+      !req.body.champion_id ||
       !req.body.description ||
-      !req.body.item1 ||
-      !req.body.img1 ||
-      !req.body.item2 ||
-      !req.body.img2 ||
-      !req.body.item3 ||
-      !req.body.img3 ||
-      !req.body.item4 ||
-      !req.body.img4 ||
-      !req.body.item5 ||
-      !req.body.img5 ||
-      !req.body.item6 ||
-      !req.body.img6 ||
-      !req.body.spell1 ||
-      !req.body.img7 ||
-      !req.body.spell2 ||
-      !req.body.img8 
+      !req.body.items_id ||
+      !req.body.spells_id
     ) {
       return res
         .status(400)
         .send(
-          "Please make sure to provide name, manager, address, phone and email fields in a request"
+          "Please make sure to provide champion ID, description of build, selected items and spells"
         );
     }
     const {
+      champion_id,
       description,
-      item1,
-      img1,
-      item2,
-      img2,
-      item3,
-      img3,
-      item4,
-      img4,
-      item5,
-      img5,
-      item6,
-      img6,
-      spell1,
-      img7,
-      spell2,
-      img8,
+      
     } = req.body;
     const postNewBuild = {
+        champion_id: champion_id,
         description: description,
-        item1: item1,
+        items_id: items_id,
         img1: img1,
-        item2: item2,
-        img2: img2,
-        item3: item3,
-        img3: img3,
-        item4: item4,
-        img4: img4,
-        item5: item5,
-        img5: img5,
-        item6: item6,
-        img6: img6,
-        spell1: spell1,
-        img7: img7,
-        spell2: spell2,
-        img8: img8,
     };
     knex("build")
       .insert(postNewBuild)

@@ -2,27 +2,60 @@ exports.up = function (knex) {
     return knex.schema.createTable("build", (table) => {
       table.increments("id").primary();
       table
-        .string("champion_id")
+        .integer("champion_id")
+        .unsigned()
         .references("champion.id")
         .onUpdate("CASCADE")
         .onDelete("CASCADE");
       table.string("description", 256);
-      table.string("item1").notNullable();
-      table.string("img1").notNullable();
-      table.string("item2");
-      table.string("img2");
-      table.string("item3");
-      table.string("img3");
-      table.string("item4");
-      table.string("img4");
-      table.string("item5");
-      table.string("img5");
-      table.string("item6");
-      table.string("img6");
-      table.string("spell1");
-      table.string("img7");
-      table.string("spell2");
-      table.string("img8");
+      
+      table
+        .integer("item1_id").unsigned().notNullable()
+        .references("item.id")
+        .onUpdate("CASCADE")
+        .onDelete("CASCADE");
+
+        table
+        .integer("item2_id").unsigned()
+        .references("item.id")
+        .onUpdate("CASCADE")
+        .onDelete("CASCADE");
+
+        table
+        .integer("item3_id").unsigned()
+        .references("item.id")
+        .onUpdate("CASCADE")
+        .onDelete("CASCADE");
+
+        table
+        .integer("item4_id").unsigned()
+        .references("item.id")
+        .onUpdate("CASCADE")
+        .onDelete("CASCADE");
+
+        table
+        .integer("item5_id").unsigned()
+        .references("item.id")
+        .onUpdate("CASCADE")
+        .onDelete("CASCADE");
+
+        table
+        .integer("item6_id").unsigned()
+        .references("item.id")
+        .onUpdate("CASCADE")
+        .onDelete("CASCADE");
+
+        table
+        .string("spell1_id")
+        .references("spell.id")
+        .onUpdate("CASCADE")
+        .onDelete("CASCADE");
+
+        table
+        .string("spell2_id")
+        .references("spell.id")
+        .onUpdate("CASCADE")
+        .onDelete("CASCADE");
     });
   };
   

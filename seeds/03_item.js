@@ -1,7 +1,8 @@
 const { data } = require("../seed_data/item.json");
 const items = Object.values(data);
-const itemInput = items.map((item) => {
+const itemInput = items.map((item,i) => {
   return {
+    id: i,
     name: item.name,
     plaintext: item.plaintext,
     gold: item.gold.total,
