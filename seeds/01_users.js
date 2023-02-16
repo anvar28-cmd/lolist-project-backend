@@ -4,7 +4,7 @@ exports.seed = async function(knex) {
     {
       id: 1,
       username: "shimazu28",
-      password: "alchem",
+      password: "asd",
       name: "Anvar Gulomov"
     },
     {

@@ -21,7 +21,6 @@ exports.up = function (knex) {
 
     table
       .integer("item1_id")
-      .unsigned()
       .notNullable()
       .references("item.id")
       .onUpdate("CASCADE")
@@ -29,35 +28,30 @@ exports.up = function (knex) {
 
     table
       .integer("item2_id")
-      .unsigned()
       .references("item.id")
       .onUpdate("CASCADE")
       .onDelete("CASCADE");
 
     table
       .integer("item3_id")
-      .unsigned()
       .references("item.id")
       .onUpdate("CASCADE")
       .onDelete("CASCADE");
 
     table
       .integer("item4_id")
-      .unsigned()
       .references("item.id")
       .onUpdate("CASCADE")
       .onDelete("CASCADE");
 
     table
       .integer("item5_id")
-      .unsigned()
       .references("item.id")
       .onUpdate("CASCADE")
       .onDelete("CASCADE");
 
     table
       .integer("item6_id")
-      .unsigned()
       .references("item.id")
       .onUpdate("CASCADE")
       .onDelete("CASCADE");

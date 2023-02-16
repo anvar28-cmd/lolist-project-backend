@@ -4,8 +4,8 @@ const spellInput = spells.map((spell) => {
   return {
     id: spell.id,
     name: spell.name,
-    description: spell.description,
-    image: spell.image.full,
+    blurb: spell.description,
+    image: `http://ddragon.leagueoflegends.com/cdn/13.3.1/img/spell/${spell.image.full}`,
   }
 });
 

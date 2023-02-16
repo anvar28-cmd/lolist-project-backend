@@ -4,9 +4,9 @@ const itemInput = items.map((item, i) => {
   return {
     id: i,
     name: item.name,
-    plaintext: item.plaintext,
+    blurb: item.plaintext,
     gold: item.gold.total,
-    image: item.image.full,
+    image: `http://ddragon.leagueoflegends.com/cdn/13.1.1/img/item/${item.image.full}`,
   }
 });
 

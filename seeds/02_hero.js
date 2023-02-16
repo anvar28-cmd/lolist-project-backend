@@ -6,7 +6,7 @@ const heroInput = heros.map((hero) => {
     name: hero.name,
     title: hero.title,
     blurb: hero.blurb,
-    image: hero.image.full,
+    image: `http://ddragon.leagueoflegends.com/cdn/13.1.1/img/champion/${hero.image.full}`,
   };
 });
 

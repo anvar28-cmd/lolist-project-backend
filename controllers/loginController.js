@@ -13,13 +13,13 @@ exports.index = (_req, res) => {
 };
 
 exports.loginUser = async (req, res) => {
-  console.log(req.body)
+ 
   const { username, password } = req.body;
-  console.log(req.body)
+ 
 
   const user = await knex("users").where({ username }).first();
 
-  console.log(user)
+  
   if (user?.password === password) {
     const token = jwt.sign({ username, id: user.id }, secret);
     res.json({ token });

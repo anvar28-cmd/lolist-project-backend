@@ -1,7 +1,6 @@
 const knex = require("knex")(require("../knexfile"));
 const jwt = require("jsonwebtoken");
 const secret = process.env.SECRET_KEY ?? "secret123";
-const { v4: uuidv4 } = require("uuid");
 
 exports.index = (_req, res) => {
   knex("users")
@@ -15,9 +14,9 @@ exports.index = (_req, res) => {
 
 exports.addUser = async (req, res) => {
   const { username, password, name } = req.body;
-   await knex("users").insert({id:uuidv4(), username, password, name });
+   await knex("users").insert({ username, password, name });
 
   console.log("added user - sending response");
-  const token = jwt.sign({ username }, secret);
+  const token = jwt.sign({ username}, secret);
   res.json({ token });
 };

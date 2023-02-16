@@ -2,7 +2,7 @@ exports.up = function (knex) {
     return knex.schema.createTable("spell", (table) => {
       table.string("id").primary();
       table.string("name").notNullable();
-      table.string("description").notNullable();
+      table.string("blurb").notNullable();
       table.string("image").notNullable();
     });
   };

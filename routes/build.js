@@ -11,11 +11,12 @@ router
 
 router
 .route("/:id")
+// .get(buildController.getBuild)
 .delete(buildController.deleteBuild)
 // .get(buildController.singleBuild)
 
 router.route('/:heroID')
-.get(buildController.getHeroes)
-
+.get(buildController.getHeroID)
+.delete(buildController.deleteHeroID)
 
 module.exports = router;
