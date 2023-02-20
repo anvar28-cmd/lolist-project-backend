@@ -36,14 +36,12 @@ app.listen(port, () => {
 
   function checkJwt(req, res, next) {
     const { authorization } = req.headers;
-    console.log(authorization)
     const token = authorization.split(" ")[1];
   
     jwt.verify(token, secret, (err, decoded) => {
       if (err) {
         res.status(403).send("token not valid");
       } else {
-        console.log(token)
         req.payload = decoded;
       }
     });
